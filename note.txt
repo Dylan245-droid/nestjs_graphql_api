@@ -1,0 +1,22 @@
+Cheminement avec une classe:
+    1- Créer la classe au niveau de models
+    2- Définir des *méthodes de classes au niveau du service* (ex: createObject)
+        (
+            - Dans le service, on a un [ModelRepository] au niveau du constructeur;
+            - Dans le resolver, on a un [ModelService] au niveau du constructeur;
+        )
+        2.1- Créer la mutation au niveau du Resolver (
+            - Penser aux mutations dans un cheminement CRUD;
+        )
+        2.2- Créer le dto correspondant: [Model-CRUD-Output] et [Model-CRUD-Input] (les deux dans le même fichier)
+            -[Model-CRUD-Output]: Qu'est-ce qu'on retourne après l'action ?
+            -[Model-CRUD-Input]: Quels champs du models sont nécessaires pour réaliser l'action ? (Optionels ou non)
+    3- Créer le service au niveau du Service
+    4- Ajouter au niveau du module:
+        imports: [TypeOrmModule.forFeature([*Model*])],
+        providers: [...ModelMutationsResolver]
+
+pcrypt pour crypter et décrypter les mots de passe
+On retourne une Promise quand la méthode est asynchrone
+
+Avec GraphQL, on a les types de resolver Mutation, Query et Field_Resolver
